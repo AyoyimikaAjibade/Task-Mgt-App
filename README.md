@@ -56,7 +56,6 @@ Create a “Task Management” application with **React + TypeScript** (frontend
 
 ## Video Walkthrough
 Here's a walkthrough of implemented user stories:
-<img src='assest/task-mgt-walkthrough.mov' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 ### Installation
 

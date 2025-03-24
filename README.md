@@ -1,17 +1,19 @@
+# Task Management Application
+
+<div align="center">
+  <img src="asset/task-app-demo.png" alt="Task Management App Demo" width="800">
+</div>
+
 ## Overview
 
-Create a “Task Management” application with **React + TypeScript** (frontend), **Node.js** (or **Nest.js**) (backend), and **PostgreSQL** (database). The application should:
+A modern task management application built with **React + TypeScript** (frontend), **NestJS** (backend), and **PostgreSQL** (database). Features include:
 
-1. **Register** (sign up) and **Log in** (sign in) users.
-2. After logging in, allow users to:
-   - **View a list of tasks**.
-   - **Create a new task**.
-   - **Update an existing task** (e.g., mark complete, edit).
-   - **Delete a task**.
+- Secure user authentication
+- Intuitive task management
+- Real-time dashboard statistics
+- Responsive Material-UI design
 
 ---
-
-## Requirements
 
 ## Built With
 
@@ -54,21 +56,13 @@ Create a “Task Management” application with **React + TypeScript** (frontend
 * npm
 * PostgreSQL
 
-## Video Walkthrough
+## Demo Video
 
-Here's a walkthrough of implemented user stories:
-
-<div align="center">
-  <img src="asset/task-app-demo.png" alt="Task Management App Demo" width="800">
-</div>
-
-> Note: Full video demo coming soon!
-
-### Features Demonstrated
-- User Registration and Login
-- Task Creation and Management
-- Dashboard Statistics
-- Responsive Design
+> Coming soon! A comprehensive video walkthrough demonstrating:
+> - User registration and authentication
+> - Task creation and management
+> - Dashboard features and statistics
+> - Responsive design across devices
 
 ### Installation
 
@@ -141,4 +135,3 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 Distributed under the MIT License. See `LICENSE` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-

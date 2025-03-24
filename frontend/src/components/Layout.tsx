@@ -11,14 +11,12 @@ import {
   ListItemText,
   Toolbar,
   Typography,
-  useTheme,
 } from '@mui/material';
 import {
   Menu as MenuIcon,
   Dashboard,
   Assignment,
   ExitToApp,
-  Person,
 } from '@mui/icons-material';
 import { useNavigate, Outlet } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
@@ -34,9 +32,8 @@ export const Layout: React.FC = () => {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   
   // Authentication context hooks
-  const { logout, user } = useAuth();
+  const { logout } = useAuth();
   const navigate = useNavigate();
-  const theme = useTheme();
 
   // Toggle mobile drawer visibility
   const handleDrawerToggle = () => {

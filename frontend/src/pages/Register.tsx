@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Box,
   Button,
@@ -7,25 +7,38 @@ import {
   TextField,
   Typography,
   Link,
+  Alert,
 } from '@mui/material';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { useAuth } from '../contexts/AuthContext';
 import { Link as RouterLink } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const validationSchema = yup.object({
   username: yup
     .string()
-    .min(3, 'Username must be at least 3 characters')
+    .min(4, 'Username must be at least 4 characters')
+    .max(20, 'Username must be at most 20 characters')
+    .matches(
+      /^[a-zA-Z0-9._-]+$/,
+      'Username can only contain letters, numbers, dots, underscores, and hyphens'
+    )
     .required('Username is required'),
   password: yup
     .string()
     .min(6, 'Password must be at least 6 characters')
+    .max(30, 'Password must be at most 30 characters')
+    .matches(
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]/,
+      'Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character'
+    )
     .required('Password is required'),
 });
 
 export const Register: React.FC = () => {
   const { register } = useAuth();
+  const [error, setError] = useState<string | null>(null);
 
   const formik = useFormik({
     initialValues: {
@@ -35,9 +48,40 @@ export const Register: React.FC = () => {
     validationSchema,
     onSubmit: async (values) => {
       try {
+        setError(null);
         await register(values);
-      } catch (error) {
+        toast.success('Registration successful! Please log in.');
+      } catch (error: any) {
         console.error('Registration error:', error);
+        
+        // Handle validation errors
+        if (error.response?.data?.message) {
+          const errorMessage = error.response.data.message;
+          
+          // Check if it's an array of validation errors
+          if (Array.isArray(errorMessage)) {
+            const fieldErrors: Record<string, string> = {};
+            
+            errorMessage.forEach((error: string) => {
+              if (error.toLowerCase().includes('username')) {
+                fieldErrors.username = error;
+              }
+              if (error.toLowerCase().includes('password')) {
+                fieldErrors.password = error;
+              }
+            });
+            
+            formik.setErrors(fieldErrors);
+            setError('Please fix the validation errors below.');
+          } else {
+            // Single error message
+            setError(errorMessage);
+          }
+        } else {
+          setError('An error occurred during registration. Please try again.');
+        }
+        
+        toast.error('Registration failed. Please check the form for errors.');
       }
     },
   });
@@ -52,6 +96,16 @@ export const Register: React.FC = () => {
           alignItems: 'center',
         }}
       >
+        <Typography component="h1" variant="h5" gutterBottom>
+          Register
+        </Typography>
+        
+        {error && (
+          <Alert severity="error" sx={{ width: '100%', mb: 2 }}>
+            {error}
+          </Alert>
+        )}
+        
         <Paper
           elevation={3}
           sx={{

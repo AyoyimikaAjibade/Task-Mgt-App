@@ -55,7 +55,20 @@ Create a “Task Management” application with **React + TypeScript** (frontend
 * PostgreSQL
 
 ## Video Walkthrough
+
 Here's a walkthrough of implemented user stories:
+
+<div align="center">
+  <img src="asset/task-app-demo.png" alt="Task Management App Demo" width="800">
+</div>
+
+> Note: Full video demo coming soon!
+
+### Features Demonstrated
+- User Registration and Login
+- Task Creation and Management
+- Dashboard Statistics
+- Responsive Design
 
 ### Installation
 

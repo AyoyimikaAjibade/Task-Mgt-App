@@ -57,9 +57,11 @@ A modern task management application built with **React + TypeScript** (frontend
 * PostgreSQL
 
 ## 📽️ Demo Video Walkthrough
+<a href="https://www.youtube.com/watch?v=peW7_lM2Af8" target="_blank">
+  <img src="asset/task-app-demo.png" alt="Video Walkthrough" title="Watch on YouTube" width="600"/>
+</a>
 
-[![Watch the demo](https://img.youtu.be/peW7_lM2Af8/0.jpg)](https://www.youtu.be/peW7_lM2Af8)
-- A comprehensive video walkthrough demonstrating:
+#### A comprehensive video walkthrough demonstrating:
 - User registration and authentication
 - Task creation and management
 - Dashboard features and statistics

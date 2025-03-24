@@ -25,22 +25,31 @@ import { useAuth } from '../contexts/AuthContext';
 
 const drawerWidth = 240;
 
+/**
+ * Layout component that provides the main application structure
+ * including the responsive drawer navigation and app bar.
+ */
 export const Layout: React.FC = () => {
+  // State for mobile drawer visibility
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  
+  // Authentication context hooks
   const { logout, user } = useAuth();
   const navigate = useNavigate();
   const theme = useTheme();
 
+  // Toggle mobile drawer visibility
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
 
+  // Navigation menu items configuration
   const menuItems = [
     { text: 'Dashboard', icon: <Dashboard />, path: '/dashboard' },
     { text: 'Tasks', icon: <Assignment />, path: '/tasks' },
-    { text: 'Profile', icon: <Person />, path: '/profile' },
   ];
 
+  // Drawer content component
   const drawer = (
     <div>
       <Toolbar />
@@ -66,6 +75,7 @@ export const Layout: React.FC = () => {
     </div>
   );
 
+  // Main layout structure
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />

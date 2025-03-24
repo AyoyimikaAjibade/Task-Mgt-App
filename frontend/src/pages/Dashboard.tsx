@@ -6,6 +6,9 @@ import {
   Grid,
   Typography,
   LinearProgress,
+  Paper,
+  Avatar,
+  Divider,
 } from '@mui/material';
 import {
   Assignment,
@@ -13,12 +16,35 @@ import {
   Schedule,
   DateRange,
   Flag,
+  Person,
 } from '@mui/icons-material';
 import { taskApi } from '../services/api';
 import { TaskStats } from '../types';
+import { useAuth } from '../contexts/AuthContext';
 
+/**
+ * Dashboard component that displays task statistics and user information
+ * Shows a greeting message, user profile, and task statistics cards
+ */
 export const Dashboard: React.FC = () => {
+  // State for task statistics
   const [stats, setStats] = useState<TaskStats | null>(null);
+  
+  // Get user information from auth context
+  const { user } = useAuth();
+
+  /**
+   * Returns a time-based greeting message
+   * Morning: 12am - 11:59am
+   * Afternoon: 12pm - 5:59pm
+   * Evening: 6pm - 11:59pm
+   */
+  const getGreeting = () => {
+    const hour = new Date().getHours();
+    if (hour < 12) return 'Good Morning';
+    if (hour < 18) return 'Good Afternoon';
+    return 'Good Evening';
+  };
 
   useEffect(() => {
     const fetchStats = async () => {
@@ -37,6 +63,7 @@ export const Dashboard: React.FC = () => {
     return <LinearProgress />;
   }
 
+  // Configuration for statistics cards
   const statCards = [
     {
       title: 'Total Tasks',
@@ -84,9 +111,22 @@ export const Dashboard: React.FC = () => {
 
   return (
     <Box sx={{ p: 3 }}>
-      <Typography variant="h4" gutterBottom>
-        Dashboard
-      </Typography>
+      {/* Greeting and Profile Section */}
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
+        <Typography variant="h4" color="primary">
+          {getGreeting()}, {user?.username}!
+        </Typography>
+        <Paper elevation={3} sx={{ p: 2, display: 'flex', alignItems: 'center', gap: 2 }}>
+          <Avatar sx={{ bgcolor: 'primary.main' }}>
+            <Person />
+          </Avatar>
+          <Box>
+            <Typography variant="h6">{user?.username}</Typography>
+            <Typography variant="body2" color="text.secondary">User Profile</Typography>
+          </Box>
+        </Paper>
+      </Box>
+      <Divider sx={{ mb: 3 }} />
 
       <Grid container spacing={3}>
         {statCards.map((stat) => (

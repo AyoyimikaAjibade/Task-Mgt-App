@@ -31,6 +31,11 @@ api.interceptors.response.use(
   }
 );
 
+/**
+ * Authentication API methods
+ * - User registration
+ * - User login
+ */
 export const authApi = {
   login: async (credentials: LoginCredentials) => {
     const response = await api.post('/auth/login', credentials);
@@ -47,6 +52,11 @@ export const authApi = {
   },
 };
 
+/**
+ * Task management API methods
+ * - CRUD operations for tasks
+ * - Task statistics
+ */
 export const taskApi = {
   getTasks: async () => {
     const response = await api.get('/tasks');

@@ -48,6 +48,10 @@ export const Tasks: React.FC = () => {
 
   const [loading, setLoading] = useState(false);
 
+  /**
+   * Fetches all tasks from the backend
+   * Shows loading state and handles errors
+   */
   const fetchTasks = async () => {
     setLoading(true);
     try {
@@ -113,6 +117,10 @@ export const Tasks: React.FC = () => {
     }
   };
 
+  /**
+   * Toggles the completion status of a task
+   * @param task - Task to toggle completion status
+   */
   const handleToggleComplete = async (task: Task) => {
     try {
       await taskApi.updateTask(task.id, { completed: !task.completed });

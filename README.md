@@ -56,13 +56,14 @@ A modern task management application built with **React + TypeScript** (frontend
 * npm
 * PostgreSQL
 
-## Demo Video
+## 📽️ Demo Video Walkthrough
 
-> Coming soon! A comprehensive video walkthrough demonstrating:
-> - User registration and authentication
-> - Task creation and management
-> - Dashboard features and statistics
-> - Responsive design across devices
+[![Watch the demo](https://img.youtu.be/peW7_lM2Af8/0.jpg)](https://www.youtu.be/peW7_lM2Af8)
+- A comprehensive video walkthrough demonstrating:
+- User registration and authentication
+- Task creation and management
+- Dashboard features and statistics
+- Responsive design across devices
 
 ### Installation
 
@@ -86,7 +87,7 @@ npm install
 4. Set up environment variables
 ```sh
 # Backend .env
-DATABASE_URL=postgresql://username:password@localhost:5432/taskdb(making stuff up set up your DB)
+DATABASE_URL=postgresql://username:password@localhost:5432/taskdb (making stuff up set up your DB)
 JWT_SECRET=your-secret-key
 
 # Frontend .env

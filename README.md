@@ -104,6 +104,11 @@ cd frontend
 npm start
 ```
 
+6. To get your specific JWT_SECRET, you can use the following command on your terminal:
+```sh
+node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+```
+
 ## Usage
 
 1. Register a new account with username and password

@@ -8,7 +8,7 @@ async function bootstrap() {
 
   app.useGlobalPipes(new ValidationPipe());
   app.enableCors({
-    origin: ['http://localhost:3000', 'http://localhost:3001'], // Frontend URLs
+    origin: ['http://frontend-service', 'http://localhost:3000'],
     credentials: true,
   });
 
@@ -54,7 +54,10 @@ async function bootstrap() {
     customCss: '.swagger-ui .topbar { display: none }',
   });
 
-  await app.listen(8080);
-  console.log(`Application is running on: ${await app.getUrl()}`);
+  const PORT = process.env.PORT;
+  const HOST = process.env.HOST;
+  console.log("==I AM RNNING THE LATEST CODE==");
+  await app.listen(3001, '0.0.0.0');
+  console.log(`🚀 Application is running at http://${HOST}:${PORT}`);
 }
 bootstrap();

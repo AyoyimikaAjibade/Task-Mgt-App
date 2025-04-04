@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+        - name: frontend
+          image: us-central1-docker.pkg.dev/tranquil-lore-449501-j8/task-mgt-app/frontend
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: "250m"       # Guaranteed minimum
+              memory: "512Mi"
+            limits:
+              cpu: "500m"       # Max allowed
+              memory: "1Gi"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: frontend
+  ports:
+    - port: 80
+      targetPort: 80

@@ -1,10 +1,8 @@
 import axios from 'axios';
 import { LoginCredentials, RegisterCredentials, Task } from '../types';
 
-const API_URL = 'http://localhost:8080';
-
 const api = axios.create({
-  baseURL: API_URL,
+  baseURL: process.env.REACT_APP_API_URL,
   withCredentials: true,
 });
 

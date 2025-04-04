@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+        - name: backend
+          image: us-central1-docker.pkg.dev/tranquil-lore-449501-j8/task-mgt-app/backend
+          ports:
+            - containerPort: 3001
+          env:
+            - name: DB_HOST
+              value: postgres
+            - name: DB_PORT
+              value: "5432"
+            - name: DB_USERNAME
+              value: taskadmin
+            - name: DB_PASSWORD
+              value: strongpassword
+            - name: DB_NAME
+              value: task_mgt_db
+            - name: JWT_SECRET
+              value: jwtverysecretkey571
+          resources:
+            requests:
+              cpu: "250m"       # Guaranteed minimum
+              memory: "512Mi"
+            limits:
+              cpu: "500m"       # Max allowed
+              memory: "1Gi"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-service
+spec:
+  type: ClusterIP
+  selector:
+    app: backend
+  ports:
+    - port: 3001
+      targetPort: 3001

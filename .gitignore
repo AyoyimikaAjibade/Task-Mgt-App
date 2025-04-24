@@ -7,6 +7,17 @@ node_modules/
 coverage/
 .nyc_output/
 
+# Dockerfile
+**/Dockerfile
+
+# .dockerignore
+**/.dockerignore
+
+# All yaml files
+**/*.yml
+**/*.yaml
+
+
 # Production
 build/
 dist/

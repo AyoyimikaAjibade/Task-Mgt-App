@@ -8,7 +8,7 @@ async function bootstrap() {
 
   app.useGlobalPipes(new ValidationPipe());
   app.enableCors({
-    origin: ['http://localhost:3000', 'http://localhost:3001'], // Frontend URLs
+    origin: 'http://localhost:3000', // Frontend URL
     credentials: true,
   });
 

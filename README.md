@@ -1,4 +1,4 @@
-# Task Management Application
+# Task Management Application (A Cloud Engineering Perspective)
 
 <div align="center">
   <img src="asset/task-app-demo.png" alt="Task Management App Demo" width="800">
@@ -48,6 +48,9 @@ A modern task management application built with **React + TypeScript** (frontend
    - Completion status tracking
    - Due date monitoring
 
+## API Testing with Swagger
+<img src="asset/task-mgt-api-testing.png" alt="Task Management API Testing" width=600>
+
 ## Getting Started
 
 ### Prerequisites
@@ -59,6 +62,7 @@ A modern task management application built with **React + TypeScript** (frontend
 ## Demo Video
 
 > Coming soon! A comprehensive video walkthrough demonstrating:
+
 > - User registration and authentication
 > - Task creation and management
 > - Dashboard features and statistics
@@ -89,8 +93,11 @@ npm install
 DATABASE_URL=postgresql://username:password@localhost:5432/taskdb(making stuff up set up your DB)
 JWT_SECRET=your-secret-key
 
-# Frontend .env
+# Backend .env
 REACT_APP_API_URL=http://localhost:8080
+
+# Frontend .env
+REACT_APP_URL=http://localhost:3000
 ```
 
 5. Start the development servers
@@ -117,7 +124,7 @@ node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
 4. View task statistics on the dashboard
 5. Manage tasks through the tasks page
 
-## Roadmap
+## Roadmap and Future Features
 
 - [ ] Add task categories/tags
 - [ ] Implement task sharing between users

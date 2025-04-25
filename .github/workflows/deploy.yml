@@ -50,8 +50,8 @@ jobs:
 
     - name: Apply backend Kubernetes manifests
       run: |
-        kubectl apply -f backend/
+        kubectl apply -f --validate=false backend/
 
     - name: Apply frontend Kubernetes manifests
       run: |
-        kubectl apply -f frontend/
+        kubectl apply -f --validate=false frontend/

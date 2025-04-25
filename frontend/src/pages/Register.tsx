@@ -161,7 +161,7 @@ export const Register: React.FC = () => {
             </Button>
             <Box sx={{ textAlign: 'center' }}>
               <Link component={RouterLink} to="/login" variant="body2">
-                {"Already have an account? Sign in"}
+                {"Already have an account? Log In"}
               </Link>
             </Box>
           </Box>

@@ -9,6 +9,8 @@ coverage/
 
 # Dockerfile
 **/Dockerfile
+!backend/Dockerfile
+!frontend/Dockerfile
 
 # .dockerignore
 **/.dockerignore
@@ -22,6 +24,7 @@ coverage/
 # Production
 build/
 dist/
+gke_credentials.json
 
 # Environment files
 .env

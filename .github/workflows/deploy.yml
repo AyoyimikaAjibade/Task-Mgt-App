@@ -33,7 +33,7 @@ jobs:
     - name: Build and push frontend image to Artifact Registry
       run: |
         docker build -t ${{ secrets.GKE_REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT }}/frontend/frontend:latest ./frontend
-        docker push ${{ secrets.GKE_REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT }}/frontend-repo/frontend:latest
+        docker push ${{ secrets.GKE_REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT }}/frontend/frontend:latest
 
     - name: Configure kubectl
       run: |
